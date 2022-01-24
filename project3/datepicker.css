@@ -1,0 +1,23 @@
+#previous, #next{
+ background-color:rgb(228, 228, 245);
+ cursor: pointer;
+}
+
+#month,#week{
+  background-color: orange;
+}
+
+table, td {
+ border: 1px solid black;
+ text-align: center;
+ background-color: white;    
+}
+
+#dim {
+  opacity: 40%;
+}
+
+#normal {
+ background-color: yellow;
+ cursor: pointer;
+}
