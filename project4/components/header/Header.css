@@ -1,0 +1,19 @@
+.cs142-header-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin:10px;
+}
+
+.cs142-header-selfie {
+  margin: 15px;
+  padding:10px;
+  width: 200px;
+}
+
+.cs142-header-affiliation {
+  display: inline-block;
+  font-family: 'Times New Roman', Times, serif;
+  position: relative;
+  padding: 5px;
+}

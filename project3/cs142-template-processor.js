@@ -11,6 +11,9 @@ Cs142TemplateProcessor.prototype.fillIn = function(dictionary){
     if (Object.prototype.hasOwnProperty.call(dictionary,found[i].slice(2,-2))){
       this.template = this.template.replace(found[i],dictionary[found[i].slice(2,-2)]);
     }
+    else{
+      this.template = this.template.replace(found[i],"");
+    }
   }
   return this.template;
 };

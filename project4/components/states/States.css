@@ -1,0 +1,16 @@
+/*
+CSS for the CS142 project #4 Problem #2 states component
+
+Since CSS uses a global name space for classes we should use names starting with
+cs142-states- here.
+*/
+
+
+.cs142-states-output {
+  display: inline-block;
+  background: blanchedalmond;
+  box-sizing: border-box;
+  border: 1px dashed #722b00;
+  font-size: large;
+  color: cadetblue;
+}

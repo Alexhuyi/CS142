@@ -1,0 +1,13 @@
+.link-button {
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  margin: 10px;
+  border: 10px;
+  height: 50px;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 3em;
+  background-color: khaki;
+  color: red;
+}
