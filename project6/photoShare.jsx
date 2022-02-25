@@ -13,6 +13,7 @@ import TopBar from './components/topBar/TopBar';
 import UserDetail from './components/userDetail/userDetail';
 import UserList from './components/userList/userList';
 import UserPhotos from './components/userPhotos/userPhotos';
+//import axios from 'axios';
 
 class PhotoShare extends React.Component {
   constructor(props) {
@@ -27,18 +28,38 @@ class PhotoShare extends React.Component {
     this.setState({ view: newView});
   };
 
+  // componentDidMount = () => {
+  //   axios.get("http://localhost:3000/test/info")
+  //   .then((response) => {
+  //     this.setState({ version: response.data.__v});
+  //     this.changeView("Welcome to the photosharing app!");
+  //   })
+  //   .catch((error) => {console.log(error);});
+  // }
+
+  // componentDidUpdate = (prevProps) => {
+  //   if (prevProps.view !== this.props.view) {
+  //     //this.setState({ view: this.props.view });
+  //     axios.get("http://localhost:3000/test/info")
+  //     .then((response) => {
+  //       this.setState({ version: response.data.__v,view: this.props.view });
+  //     })
+  //     .catch((error) => {console.log(error);});
+  //   }
+  // };
+
   render() {
     return (
       <HashRouter>
       <div>
       <Grid container spacing={8}>
         <Grid item xs={12}>
-          <TopBar view={this.state.view}/>
+          <TopBar changeView={this.changeView} view={this.state.view}/>
         </Grid>
         <div className="cs142-main-topbar-buffer"/>
         <Grid item sm={3}>
           <Paper className="cs142-main-grid-item">
-            <UserList />
+            <UserList changeView={this.changeView} view="Users List"/>
           </Paper>
         </Grid>
         <Grid item sm={9}>

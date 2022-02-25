@@ -17,7 +17,10 @@ class UserPhotos extends React.Component {
       user:undefined,
       photos:undefined
     };
-    let userId = props.match.params.userId;
+  }
+
+  componentDidMount = () => {
+    let userId = this.props.match.params.userId;
     axios.get(`http://localhost:3000/photosOfUser/${userId}`)
     .then(response => {
       this.setState({photos: response.data});
@@ -30,17 +33,26 @@ class UserPhotos extends React.Component {
       this.props.changeView(`Photos of ${this.state.user.first_name} ${this.state.user.last_name}`);
     })
     .catch(err => {console.log(err);});
-  }
+  };
 
-  // componentDidUpdate = (prevProps) => {
-  //   let newUserID = this.props.match.params.userId;
-  //   if (prevProps.match.params.userId !== newUserID) {
-  //     let newUser = window.cs142models.userModel(newUserID);
-  //     let newPhotos = window.cs142models.photoOfUser(newUserID);
-  //     this.setState({user:newUser,photos:newPhotos});
-  //     this.props.changeView(`Photos of ${newUser.first_name} ${newUser.last_name}`);
-  //   }
-  // };
+  componentDidUpdate = (prevProps) => {
+    let newUserID = this.props.match.params.userId;
+    if (prevProps.match.params.userId !== newUserID) {
+      let userId = this.props.match.params.userId;
+      axios.get(`http://localhost:3000/photosOfUser/${userId}`)
+      .then(response => {
+        this.setState({photos: response.data});
+      })
+      .catch(err => {console.error(err);});
+  
+      axios.get(`http://localhost:3000/user/${userId}`)
+      .then(response => {
+        this.setState({user: response.data});
+        this.props.changeView(`Photos of ${this.state.user.first_name} ${this.state.user.last_name}`);
+      })
+      .catch(err => {console.log(err);});
+    }
+  };
 
   render() {
     return this.state.user ? (

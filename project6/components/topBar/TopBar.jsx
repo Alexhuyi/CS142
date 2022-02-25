@@ -16,15 +16,27 @@ class TopBar extends React.Component {
       view: this.props.view,
       version:""
     };
-    axios.get("http://localhost:3000/test/info")
-    .then((response) => {this.setState({ version: response.data.__v});})
-    .catch((error) => {console.log(error);});
   }
+  
+  componentDidMount = () => {
+    axios.get("http://localhost:3000/test/info")
+    .then((response) => {
+      this.setState({ version: response.data.__v});
+      this.props.changeView("Welcome to the photosharing app!");
+    })
+    .catch((error) => {console.log(error);});
+  };
 
   componentDidUpdate = (prevProps) => {
     if (prevProps.view !== this.props.view) {
       this.setState({ view: this.props.view });
-    }
+      this.props.changeView(this.props.view);
+    //   axios.get("http://localhost:3000/test/info")
+    //   .then((response) => {
+    //     this.setState({ version: response.data.__v,view: this.props.view });
+    //   })
+    //   .catch((error) => {console.log(error);});
+     }
   };
 
   render() {

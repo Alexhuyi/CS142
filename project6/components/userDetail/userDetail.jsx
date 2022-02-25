@@ -16,7 +16,10 @@ class UserDetail extends React.Component {
     this.state={
       user:undefined
     };
-    let newUserId = props.match.params.userId;
+  }
+
+  componentDidMount = () => {
+    let newUserId = this.props.match.params.userId;
     console.log(newUserId);
     axios.get(`http://localhost:3000/user/${newUserId}`)
     .then(response => {
@@ -27,7 +30,7 @@ class UserDetail extends React.Component {
       );
     })
     .catch(error => {console.log(error);});
-  }
+  };
 
   componentDidUpdate = () => {
     let newUserId = this.props.match.params.userId;

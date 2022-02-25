@@ -18,14 +18,25 @@ class UserList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      users: undefined,
+      users: undefined
     };
+  }
+
+  componentDidMount = () => {
     axios.get("http://localhost:3000/user/list")
     .then((response) => {
       this.setState({users: response.data});
+      //this.props.changeView("Users List");
     })
     .catch((error) => {console.error(error);});
-  }
+  };
+
+  componentDidUpdate = (prevProps) => {
+    if (prevProps.view !== this.props.view) {
+      // this.setState({view:"User List"});
+      this.props.changeView("Users List");
+    }
+  };
 
   render() {
     return this.state.users ? (
