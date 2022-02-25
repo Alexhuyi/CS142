@@ -59,7 +59,7 @@ class PhotoShare extends React.Component {
         <div className="cs142-main-topbar-buffer"/>
         <Grid item sm={3}>
           <Paper className="cs142-main-grid-item">
-            <UserList changeView={this.changeView} view="Users List"/>
+            <UserList changeView={this.changeView}/>
           </Paper>
         </Grid>
         <Grid item sm={9}>

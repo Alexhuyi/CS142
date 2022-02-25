@@ -35,6 +35,10 @@ class UserPhotos extends React.Component {
     .catch(err => {console.log(err);});
   };
 
+  componentWillUnmount = () => {
+    this.props.changeView("");
+  };
+  
   componentDidUpdate = (prevProps) => {
     let newUserID = this.props.match.params.userId;
     if (prevProps.match.params.userId !== newUserID) {

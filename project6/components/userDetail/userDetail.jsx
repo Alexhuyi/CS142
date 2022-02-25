@@ -47,6 +47,10 @@ class UserDetail extends React.Component {
     }
   };
 
+  componentWillUnmount = () => {
+    this.props.changeView("");
+  };
+  
   render() {
     return this.state.user ? (
       <Grid
