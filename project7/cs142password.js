@@ -13,9 +13,9 @@ var createHash = require("crypto").createHash;
  */
 function makePasswordEntry(clearTextPassword) {
     let passwordEntry = {};
-    passwordEntry.salt = randomBytes(16).toString();
-    let input = createHash("sha1");
+    passwordEntry.salt = randomBytes(16).toString('binary');
     let salted = clearTextPassword.concat(passwordEntry.salt);
+    let input = createHash("sha1");
     input.update(salted);
     passwordEntry.hash = input.digest("hex");
     return passwordEntry;

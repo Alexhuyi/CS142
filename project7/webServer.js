@@ -390,7 +390,7 @@ app.post("/user", function(request, response) {
             return;
         }
         let password = cs142password.makePasswordEntry(request.body.password);
-        console.log("Password salt length:"+password.salt.length);
+        //console.log("Password salt length:"+password.salt.length);
         User.create({login_name:request.body.login_name,
             first_name:request.body.first_name,
             last_name:request.body.last_name,
